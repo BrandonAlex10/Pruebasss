@@ -1,0 +1,15 @@
+﻿<Page x:Class="SGR.Presentation.UI.Index.Pages.PGSGR_Index"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="567" d:DesignWidth="900"
+	Title="PGSGR_Index">
+
+    <Border Grid.Row="1" Grid.Column="0" Margin="5"  Background="White" BorderThickness="1" BorderBrush="#e7e7e7">
+        <Grid>
+            <Image x:Name="imgLogo" Grid.Row="0" Grid.Column="0"  Width="900" Height="567" MaxWidth="900" MaxHeight="567" Margin="2" Source="/SGR.Presentation;component/Resource/index.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+    </Border>
+</Page>

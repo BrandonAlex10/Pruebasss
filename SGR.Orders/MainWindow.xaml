@@ -1,0 +1,54 @@
+﻿<Controls:MetroWindow x:Class="SGR.Orders.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      xmlns:ModalDialog="clr-namespace:ComputerSystems.WPF.Acciones.Controles.ModalDialog;assembly=ComputerSystems.WPF"                      
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      WindowStartupLocation="CenterScreen"
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      WindowState="Maximized"
+                      MinHeight="600" MinWidth="1100"
+                      FontFamily="Segoe WP Light" Background="#eaeaec"
+                      NonActiveGlowBrush="Red" ContentRendered="MetroWindow_ContentRendered_1"
+                      Closing="MetroWindow_Closing_1"
+                      Icon="Resource/pedido.ico"
+                      Height="500" Width="700">
+    <Controls:MetroWindow.TitleTemplate>
+        <DataTemplate>
+            <Grid>
+                <TextBlock Text="Sistema Gestión de Restaurant" Foreground="White"
+                           VerticalAlignment="Center" Margin="10,0"/>
+            </Grid>
+        </DataTemplate>
+    </Controls:MetroWindow.TitleTemplate>
+    <Controls:MetroContentControl>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="35"/>
+            </Grid.RowDefinitions>
+            <Grid.Background>
+                    <ImageBrush Opacity="0.9" ImageSource="Resource/Login/1920_1080_20100520014441336870.jpg" Stretch="UniformToFill"/>
+                </Grid.Background>
+            <Grid Grid.Row="0" Margin="0">
+                <Grid x:Name="ModalDialogParent">
+                    <Frame x:Name="MyFrameBody" 
+                        HorizontalAlignment="Stretch" 
+                        VerticalAlignment="Stretch"
+                        NavigationUIVisibility="Hidden"
+                        Grid.Row="0" Grid.Column="1" />
+                </Grid>
+                <ModalDialog:CmpModalDialog x:Name="ContentCmpModalDialog" />
+            </Grid>
+            <Grid Grid.Row="1" Background="{StaticResource AccentColorBrush}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="© 2017 Computer Systems Solution. Todos los derechos reservados" Margin="10,0" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                <StackPanel Grid.Column="1" Background="Black" Height="35" Margin="0" Opacity="0.75">
+                    <Image Source="/SGR.Orders;component/Resource/Login/logocomputer.png" Height="35" Stretch="Uniform" Margin="20,0" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Controls:MetroContentControl>
+</Controls:MetroWindow>

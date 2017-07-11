@@ -1,0 +1,98 @@
+﻿<Page x:Class="SGR.Presentation.UI.ProductoCategoria.Pages.PGSGR_ListadoProductoCategoria"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:TitleModule="clr-namespace:ComputerSystems.WPF.Acciones.TitleModule;assembly=ComputerSystems.WPF"
+      xmlns:CmpButton="clr-namespace:ComputerSystems.WPF.Acciones.Controles.Buttons;assembly=ComputerSystems.WPF"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="700"
+      Title="">
+
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TitleModule:MyTitleModule Grid.Row="0" Grid.Column="0" Margin="5" Grid.ColumnSpan="2"
+                                   NameModule="Sistema de Gestión para Restaurant"
+                                   NameWindow="Administración de Producto Categoría" Logo="/SGR.Presentation;component/Resource/sgr.ico" />
+
+        <Border Grid.Row="1" Grid.Column="0" Margin="5"  Background="White" BorderThickness="1" BorderBrush="#e7e7e7">
+            <Grid Grid.Row="1" Grid.Column="0" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <!--BUSCADOR-->
+                    <StackPanel Grid.Row="0" Grid.Column="0" >
+                        <TextBlock Text="Filtrar por [ Categoría | Descripción ]" Grid.Row="0" Grid.Column="1"  Margin="5,0,5,0" FontSize="10"/>
+                        <TextBox  Grid.Row="0" Grid.Column="1" Margin="5,0,5,5" CharacterCasing="Upper" 
+                          Text="{Binding DataContext.PropertyFiltrado, RelativeSource={RelativeSource FindAncestor,AncestorType=Page},UpdateSourceTrigger=PropertyChanged}"
+                          Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                          Controls:TextBoxHelper.ClearTextButton="True"
+                          ToolTip="Filtrar por [ Categoría | Descripción ]" />
+                    </StackPanel>
+                    <Button Grid.Row="0" Grid.Column="2" Margin="5"
+                            Command="{Binding DataContext.INuevo, RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}"
+                            IsEnabled="{Binding DataContext.PropertyIsEnabledNuevo, RelativeSource={RelativeSource FindAncestor, AncestorType=Page}}"
+                            Style="{DynamicResource SGRButtonNuevo}" HorizontalAlignment="Right"/>
+                </Grid>
+                
+
+                <!--LISTADO-->
+                <DataGrid x:Name="gridCollectionProductoCategoria" Grid.Row="1" Grid.Column="1" MinHeight="200" Margin="5,0,5,5" Style="{StaticResource CmpStandarDataGrid}"
+                      ItemsSource="{Binding CollectionESGR_ProductoCategoria}"
+                      SelectedItem="{Binding SelectESGR_ProductoCategoria}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Código" Binding="{Binding IdCategoria}" MinWidth="100" Width="100" Visibility="Hidden" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Categoría" Binding="{Binding Categoria}" MinWidth="200"  Width="*" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Impresora" Binding="{Binding Impresora}" MinWidth="200"  Width="*" IsReadOnly="True"/>
+                        <DataGridTemplateColumn MinWidth="60" Width="60" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Button Grid.Row="0" Grid.Column="0" Style="{DynamicResource CmpDataViewButtonEditar01}"
+                                                Command="{Binding DataContext.IEditar, RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}"
+                                                IsEnabled="{Binding DataContext.PropertyIsEnabledEditar, RelativeSource={RelativeSource FindAncestor, AncestorType=Page}}"/>
+                                        <Button Grid.Row="0" Grid.Column="1" Style="{DynamicResource CmpDataViewButtonEliminar01}"
+                                                Command="{Binding DataContext.IEliminar, RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}"
+                                                IsEnabled="{Binding DataContext.PropertyIsEnabledEliminar, RelativeSource={RelativeSource FindAncestor, AncestorType=Page}}"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" >
+                    <TextBlock Margin="5" Text="{Binding ElementName=gridCollectionProductoCategoria, Path=Items.Count}" />
+                    <TextBlock Margin="5" Text="Registros" />
+                </StackPanel>
+
+                <!--BOTONES-->
+                <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Margin="5" Command="{Binding DataContext.ISalir, RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}" Content="Salir" Width="120"/>
+                    <Button Margin="5" Command="{Binding DataContext.ISubCategoria, RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}" Content="Sub Categoría" Width="120"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

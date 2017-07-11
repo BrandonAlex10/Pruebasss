@@ -1,0 +1,100 @@
+﻿<Page x:Class="SGR.Presentation.UI.Usuario.Pages.PGSGR_ListadoUsuario"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:TitleModule="clr-namespace:ComputerSystems.WPF.Acciones.TitleModule;assembly=ComputerSystems.WPF"
+      xmlns:CmpButton="clr-namespace:ComputerSystems.WPF.Acciones.Controles.Buttons;assembly=ComputerSystems.WPF"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="700" Loaded="Page_Loaded_1"
+      Title="">
+
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TitleModule:MyTitleModule Grid.Row="0" Grid.Column="0" Margin="5" Grid.ColumnSpan="2"
+                                   NameModule="Sistema de Gestión para Restaurant"
+                                   NameWindow="Administración de Usuario" Logo="/SGR.Presentation;component/Resource/sgr.ico" />
+
+        <Border Grid.Row="1" Grid.Column="0" Margin="5"  Background="White" BorderThickness="1" BorderBrush="#e7e7e7">
+            <Grid Grid.Row="1" Grid.Column="0" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <!--BUSCADOR-->
+                    <StackPanel Grid.Row="0" Grid.Column="0" >
+                        <TextBlock Text="Filtrar por [ Nombres | Apellidos | Correo ]" Margin="5,0,5,0" FontSize="10"/>
+                        <TextBox Margin="5" 
+                         Text="{Binding DataContext.Filtro,RelativeSource={RelativeSource FindAncestor,AncestorType=Page}, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                         Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                         Controls:TextBoxHelper.ClearTextButton="True"
+                         ToolTip="Filtra por artículo" />
+                    </StackPanel>
+                    <Button Grid.Row="0" Grid.Column="2" Margin="5"
+                            Command="{Binding DataContext.INuevo, RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}"
+                            IsEnabled="{Binding DataContext.PropertyIsEnabledNuevo, RelativeSource={RelativeSource FindAncestor, AncestorType=Page}}"
+                            Style="{DynamicResource SGRButtonNuevo}" HorizontalAlignment="Right"/>
+                </Grid>
+                
+
+                <!--LISTADO-->
+                <DataGrid x:Name="gridCollectionUsuario" Grid.Row="1" Grid.Column="0" MinHeight="200" Margin="5,0,5,5" Style="{StaticResource CmpStandarDataGrid}"
+                      ItemsSource="{Binding CollectionESGR_Usuario}"
+                      SelectedItem="{Binding SelectedESGR_Usuario}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nombres" Binding="{Binding Nombres}" IsReadOnly="True" MinWidth="150" Width="*" />
+                        <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" IsReadOnly="True" MinWidth="150"  Width="*"/>
+                        <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" IsReadOnly="True" MinWidth="150"  Width="*"/>
+                        <DataGridTextColumn Header="Usuario" Binding="{Binding Usuario}" IsReadOnly="True" MinWidth="100" />
+                        <DataGridTextColumn Header="Tipo Usuario" Binding="{Binding ESGR_Perfil.NombrePerfil}" IsReadOnly="True" MinWidth="100" />
+                        <DataGridTemplateColumn MinWidth="60" Width="60" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Button Grid.Row="0" Grid.Column="0" Style="{DynamicResource CmpDataViewButtonEditar01}"
+                                                Command="{Binding DataContext.IEditar, RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}"
+                                                IsEnabled="{Binding DataContext.PropertyIsEnabledEditar, RelativeSource={RelativeSource FindAncestor, AncestorType=Page}}"/>
+                                        <Button Grid.Row="0" Grid.Column="1" Style="{DynamicResource CmpDataViewButtonEliminar01}"
+                                                Command="{Binding DataContext.IEliminar, RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}"
+                                                IsEnabled="{Binding DataContext.PropertyIsEnabledEliminar, RelativeSource={RelativeSource FindAncestor, AncestorType=Page}}"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <StackPanel Grid.Row="2" Grid.Column="1" Margin="5,0" Orientation="Horizontal" >
+                    <TextBlock Text="{Binding ElementName=gridCollectionUsuario, Path=Items.Count}" />
+                    <TextBlock Text=" Registros" />
+                </StackPanel>
+
+                <!--BOTONES-->
+                <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Margin="5" Command="{Binding DataContext.ISalir, RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}" Content="Salir" Width="120"/>
+                    <Button Margin="5" Command="{Binding DataContext.IHabilitar, RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}" Content="Ver Eliminados" Width="120"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

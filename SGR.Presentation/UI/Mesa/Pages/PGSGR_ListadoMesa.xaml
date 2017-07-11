@@ -1,0 +1,80 @@
+﻿<Page x:Class="SGR.Presentation.UI.Mesa.Pages.PGSGR_ListadoMesa"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:TitleModule="clr-namespace:ComputerSystems.WPF.Acciones.TitleModule;assembly=ComputerSystems.WPF"
+      xmlns:CmpButton="clr-namespace:ComputerSystems.WPF.Acciones.Controles.Buttons;assembly=ComputerSystems.WPF"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="700"
+      Title="">
+
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TitleModule:MyTitleModule Grid.Row="0" Grid.Column="0" Margin="5" Grid.ColumnSpan="2"
+                                   NameModule="Sistema de Gestión para Restaurant"
+                                   NameWindow="Administración de Mesa" Logo="/SGR.Presentation;component/Resource/sgr.ico" />
+
+        <Border Grid.Row="1" Grid.Column="0" Margin="5"  Background="White" BorderThickness="1" BorderBrush="#e7e7e7">
+            <Grid Grid.Row="1" Grid.Column="0" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!--BUSCADOR-->
+                <Button Grid.Row="0" Grid.Column="2" Margin="5"
+                        Command="{Binding DataContext.INuevo, RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}"
+                        IsEnabled="{Binding DataContext.PropertyIsEnabledNuevo, RelativeSource={RelativeSource FindAncestor, AncestorType=Page}}"
+                        Style="{DynamicResource SGRButtonNuevo}" HorizontalAlignment="Right"/>
+
+                <!--LISTADO-->
+                <DataGrid x:Name="gridCollectionMesa" Grid.Row="1" Grid.Column="0" Margin="5,0,5,5"  Style="{StaticResource CmpStandarDataGrid}"
+                      ItemsSource="{Binding ColletionESGR_Mesa}" SelectedItem="{Binding SelectESGR_Mesa}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Mesa" MinWidth="100" Width="*" IsReadOnly="True" Binding="{Binding Mesa}" />
+                        <DataGridTextColumn Header="Área de Mesa" MinWidth="50" Width="*" IsReadOnly="True" Binding="{Binding EESGR_MesaArea.MesaArea}" />
+                        <DataGridTemplateColumn MinWidth="60" Width="60" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Button Grid.Row="0" Grid.Column="0" Style="{DynamicResource CmpDataViewButtonEditar01}"
+                                                Command="{Binding DataContext.IEditar, RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}"
+                                                IsEnabled="{Binding DataContext.PropertyIsEnabledEditar, RelativeSource={RelativeSource FindAncestor, AncestorType=Page}}"/>
+                                        <Button Grid.Row="0" Grid.Column="1" Style="{DynamicResource CmpDataViewButtonEliminar01}"
+                                                Command="{Binding DataContext.IEliminar, RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}"
+                                                IsEnabled="{Binding DataContext.PropertyIsEnabledEliminar, RelativeSource={RelativeSource FindAncestor, AncestorType=Page}}"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" >
+                    <TextBlock Margin="5" Text="{Binding ElementName=gridCollectionMesa, Path=Items.Count}"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Margin="5" Text=" Registros"/>
+                </StackPanel>
+
+                <!--BOTONES-->
+                <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Margin="5" Command="{Binding DataContext.ISalir, RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}" Content="Salir"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

@@ -1,0 +1,65 @@
+﻿<CmpModal:CmpModalPage x:Class="SGR.Presentation.UI.ProductoCategoria.ModalPage.MPSGR_ProductoCategoria"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:CmpModal="clr-namespace:ComputerSystems.WPF.Acciones.Controles.ModalDialog;assembly=ComputerSystems.WPF"
+      xmlns:TitleModule="clr-namespace:ComputerSystems.WPF.Acciones.TitleModule;assembly=ComputerSystems.WPF"
+      xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:CmpButton="clr-namespace:ComputerSystems.WPF.Acciones.Controles.Buttons;assembly=ComputerSystems.WPF"
+      xmlns:CmpTextBox="clr-namespace:ComputerSystems.WPF.Acciones.Controles.TextBoxs;assembly=ComputerSystems.WPF"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d" Height="300" Width="500" >
+
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource AccentColorBrush}">
+            <TextBlock HorizontalAlignment="Center" Text="Administración de Prod. Categoría" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
+        </Grid>
+
+        <Border Grid.Row="1" Grid.Column="0" Margin="5"  Background="White" BorderThickness="1" BorderBrush="#e7e7e7">
+            <ScrollViewer  Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Row="0" Grid.Column="0" DataContext="{Binding ESGR_ProductoCategoria}" VerticalAlignment="Center">
+                        <TextBlock Text="Categoría" Margin="5,0,5,0" FontSize="10"/>
+                        <TextBox Grid.Row="0" Grid.Column="0" Margin="5,0,5,5" MinWidth="200" Width="Auto"
+                                 Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                                 Text="{Binding Categoria, UpdateSourceTrigger=PropertyChanged}"
+                                 Controls:TextBoxHelper.ClearTextButton="True"
+                                 ToolTip="Ingrese categoría" />
+
+                        <TextBlock Text="Impresora" Margin="5,0,5,0" FontSize="10"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" Margin="5,0,5,5" MinWidth="200" Width="Auto" 
+                              Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                             Text="{Binding Impresora, UpdateSourceTrigger=PropertyChanged}"
+                             Controls:TextBoxHelper.ClearTextButton="True"
+                             ToolTip="Ingrese Impresora" />
+                        <CheckBox Content="Valida Stock" Margin="5,0,5,5" IsChecked="{Binding ValidaStock, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                        <Button Margin="5" Command="{Binding DataContext.IVolver, RelativeSource={RelativeSource FindAncestor,AncestorType=CmpModal:CmpModalPage}}" Content="Volver"
+                                Background="White" Foreground="Black" BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1"/>
+                        <Button Margin="5" Command="{Binding DataContext.IGuardar, RelativeSource={RelativeSource FindAncestor,AncestorType=CmpModal:CmpModalPage}}" Content="Guardar" />
+                    </StackPanel>
+
+                </Grid>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</CmpModal:CmpModalPage>

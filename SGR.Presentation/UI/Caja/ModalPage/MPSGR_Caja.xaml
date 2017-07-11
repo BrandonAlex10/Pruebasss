@@ -1,0 +1,51 @@
+﻿<CmpModal:CmpModalPage x:Class="SGR.Presentation.UI.Caja.ModalPage.MPSGR_Caja"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:CmpModal="clr-namespace:ComputerSystems.WPF.Acciones.Controles.ModalDialog;assembly=ComputerSystems.WPF"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:TitleModule="clr-namespace:ComputerSystems.WPF.Acciones.TitleModule;assembly=ComputerSystems.WPF"
+      xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:CmpButton="clr-namespace:ComputerSystems.WPF.Acciones.Controles.Buttons;assembly=ComputerSystems.WPF"
+      xmlns:CmpTextBox="clr-namespace:ComputerSystems.WPF.Acciones.Controles.TextBoxs;assembly=ComputerSystems.WPF"
+      mc:Ignorable="d" Height="230" Width="400" Background="White">
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource AccentColorBrush}">
+            <TextBlock HorizontalAlignment="Center" Text="Administración de Caja" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="0" Margin="10" >
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
+                <TextBlock Text="Empresa Sucursal" FontSize="10"/>
+                <ComboBox ItemsSource="{Binding CollectionESGR_UsuarioEmpresaSucursal, UpdateSourceTrigger=PropertyChanged}"
+                          DisplayMemberPath="ESGR_EmpresaSucursal.Sucursal"
+                          SelectedItem="{Binding SelectedESGR_UsuarioEmpresaSucursal, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">
+                <TextBlock Text="Caja" FontSize="10" />
+                <TextBox Text="{Binding ESGR_Caja.Descripcion, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2" Background="#eaeaec" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,5,10,5">
+                <Button  Grid.Row="0" Grid.Column="1" Content="Cerrar" Background="White" Foreground="Black" BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1" VerticalAlignment="Center" Command="{Binding DataContext.IVolver, RelativeSource={RelativeSource FindAncestor,AncestorType=CmpModal:CmpModalPage}}" />
+                <Button  Grid.Row="0" Grid.Column="1" Content="Guardar" VerticalAlignment="Center" Command="{Binding IGuardar}" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</CmpModal:CmpModalPage>

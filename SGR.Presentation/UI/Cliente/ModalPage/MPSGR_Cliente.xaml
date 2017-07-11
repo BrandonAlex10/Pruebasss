@@ -1,0 +1,184 @@
+﻿<CmpModal:CmpModalPage x:Class="SGR.Presentation.UI.Cliente.ModalPage.MPSGR_Cliente"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:CmpModal="clr-namespace:ComputerSystems.WPF.Acciones.Controles.ModalDialog;assembly=ComputerSystems.WPF"
+      xmlns:TitleModule="clr-namespace:ComputerSystems.WPF.Acciones.TitleModule;assembly=ComputerSystems.WPF"
+      xmlns:CmpButton="clr-namespace:ComputerSystems.WPF.Acciones.Controles.Buttons;assembly=ComputerSystems.WPF"
+      xmlns:CmpTextBox="clr-namespace:ComputerSystems.WPF.Acciones.Controles.TextBoxs;assembly=ComputerSystems.WPF"
+      xmlns:CmpDataGrid="clr-namespace:ComputerSystems.WPF.Acciones.Controles.DataGrids;assembly=ComputerSystems.WPF"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      mc:Ignorable="d" Height="600" Width="700" >
+
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--<TitleModule:MyTitleModule Grid.Row="0" Grid.Column="0" Margin="5" Grid.ColumnSpan="2"
+        NameModule="Sistema de Gestión para Restaurant" NameWindow="Administración de Clientes" Logo="/SGR.Presentation;component/Resource/sgr.ico" />-->
+        <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource AccentColorBrush}">
+            <TextBlock HorizontalAlignment="Center" Text="Administración de Clientes" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
+        </Grid>
+
+        <Border Grid.Row="1" Grid.Column="0" Margin="5"  Background="White" BorderThickness="1" BorderBrush="#e7e7e7">
+            <Grid Grid.Row="1" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0" DataContext="{Binding ESGR_Cliente}">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Row="0" Grid.Column="0">
+                            <TextBlock Text="Documento de Identidad" Margin="5,0,5,0" FontSize="10"/>
+                            <ComboBox  Margin="5,0,5,5" SelectedItem="{Binding DataContext.SelectDocIdentidad,RelativeSource={RelativeSource FindAncestor,AncestorType=CmpModal:CmpModalPage}}"
+                                   ToolTip="Documento de Identidad" 
+                                   ItemsSource="{Binding DataContext.CollectionDocIdentidad,RelativeSource={RelativeSource FindAncestor,AncestorType=CmpModal:CmpModalPage}}"
+                                   DisplayMemberPath="ValueMemberPath" SelectedValuePath="ValueValuePath"
+                                   MaxDropDownHeight="125" IsEnabled="{Binding DataContext.PropertyEnableDocIdentidad,RelativeSource={RelativeSource FindAncestor,AncestorType=CmpModal:CmpModalPage}}"
+                                   CmpTextBox:FocusAdvancement.AdvancesByEnterKey="True"
+                                   Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"/>
+                            <Grid>
+                                <Grid x:Name="GridCaptcha">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" BorderBrush="Gray" BorderThickness="1" Background="White">
+                                        <Image x:Name="ImagenCaptcha" Source="{Binding DataContext.PropertyImageContent,RelativeSource={RelativeSource AncestorType=CmpModal:CmpModalPage}}" Height="75" Stretch="None" />
+                                    </Border>
+                                    <Controls:ProgressRing x:Name="ProgressRingContent" Grid.Row="0"  Grid.Column="0"
+                                       Width="100" Visibility="{Binding DataContext.PropertyVisibility,RelativeSource={RelativeSource AncestorType=CmpModal:CmpModalPage}}"
+                                       Height="80" />
+                                    <TextBox x:Name="txtCodeCaptcha" Grid.Row="1" Grid.Column="0" Margin="5,10,5,6" 
+                                         Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                                      
+                                         Controls:TextBoxHelper.Watermark="Ingrese Código de la imagen"
+                                         CmpTextBox:FocusAdvancement.AdvancesByEnterKey="True"
+                                         Controls:TextBoxHelper.ClearTextButton="True" CharacterCasing="Upper"
+                                         Text="{Binding DataContext.CodigoCaptcha,RelativeSource={RelativeSource FindAncestor,AncestorType=CmpModal:CmpModalPage}}"
+                                         ToolTip="Ingrese Código que se muestra en la imagen" />
+                                    <Button x:Name="btnActualizarCaptcha" Grid.Row="1" Grid.Column="1" Width="25" Height="26" Margin="5"
+                                         IsEnabled="{Binding DataContext.PropertyEnabledActualizarCaptcha,RelativeSource={RelativeSource FindAncestor,AncestorType=CmpModal:CmpModalPage}}"
+                                        ToolTip="Actualizar CapTcha" Style="{DynamicResource CmpButtonRefresh}"
+                                        Command="{Binding DataContext.IUpdateCaptcha,RelativeSource={RelativeSource FindAncestor,AncestorType=CmpModal:CmpModalPage}}"/>
+
+                                </Grid>
+                                <Controls:ProgressRing x:Name="ProgressRingCaptcha" Grid.Row="0"  Grid.Column="0"
+                                       Width="50" Visibility="Hidden"
+                                       Height="50" />
+                            </Grid>
+                            <TextBlock Text="Nro Doc Identidad" Margin="5,7,5,0" FontSize="10"/>
+                            <TextBox Margin="5,0,5,5"
+                                 CharacterCasing="Upper"
+                                 Text="{Binding NroDocIdentidad,UpdateSourceTrigger=PropertyChanged}" 
+                                 Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                                 CmpTextBox:CmpIsCommand.Enter="{Binding DataContext.IBuscar,RelativeSource={RelativeSource FindAncestor,AncestorType=CmpModal:CmpModalPage}}"
+                               
+                                 ToolTip="Ingrese Nro Doc Identidad" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Cliente" Margin="5,0,5,0" FontSize="10"/>
+                            <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,0,5,5" CharacterCasing="Upper"
+                                 CmpTextBox:FocusAdvancement.AdvancesByEnterKey="True"
+                                 Text="{Binding Cliente,UpdateSourceTrigger=PropertyChanged}"
+                                 Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"                                
+                                 Controls:TextBoxHelper.ClearTextButton="True"
+                                 ToolTip="Ingrese Razón Social" />
+
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Dirección" Margin="5,0,5,0" FontSize="10"/>
+                            <TextBox Grid.Row="1" Grid.Column="0" Margin="5,0,5,5" CharacterCasing="Upper"
+                                 CmpTextBox:FocusAdvancement.AdvancesByEnterKey="True"
+                                 Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                                 Text="{Binding Direccion,UpdateSourceTrigger=PropertyChanged}"
+                                 Controls:TextBoxHelper.ClearTextButton="True"
+                                 ToolTip="Ingrese Dirección" />
+
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Localidad" Margin="5,0,5,0" FontSize="10" Visibility="Collapsed"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.Row="2" Grid.Column="0" Margin="5,0,5,5" CharacterCasing="Upper"
+                                 CmpTextBox:FocusAdvancement.AdvancesByEnterKey="True"
+                                 Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                                 Text="{Binding RepresentanteLegal, UpdateSourceTrigger=PropertyChanged}" Visibility="Collapsed"
+                                 Controls:TextBoxHelper.ClearTextButton="True"
+                                 ToolTip="Ingrese Localidad" />
+
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Correo" Margin="5,0,5,0" FontSize="10"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.Row="3" Grid.Column="0" Margin="5,0,5,5" CharacterCasing="Upper"
+                                 Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                                 Text="{Binding Correo, UpdateSourceTrigger=PropertyChanged}"
+                                 CmpTextBox:FocusAdvancement.AdvancesByEnterKey="True"
+                                 Controls:TextBoxHelper.ClearTextButton="True"
+                                 ToolTip="Ingrese Correo" />
+
+                            <TextBlock Grid.Row="4" Grid.Column="0" Text="Fecha Nacimiento" Margin="5,0,5,0" FontSize="10"/>
+                            <DatePicker Grid.Row="5" Grid.Column="0" Margin="5,0,5,5" SelectedDate="{Binding FechaNacimiento,UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock Text="Localidad" Margin="5,0,5,0"/>
+                            <TextBox Text="{Binding Localidad,UpdateSourceTrigger=PropertyChanged}"   CharacterCasing="Upper" Margin="5,0,5,0"/>
+                        </StackPanel>
+                    </Grid>
+
+                </Grid>
+                <TabControl Grid.Row="1" Height="200" Margin="5">
+                    <TabItem Header="Teléfono" DataContext="{Binding ESGR_Cliente}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                                <Button ToolTip="Agregar teléfono" Width="25" Margin="3" Content="+"
+                                Command="{Binding DataContext.IAgregarTelefono,RelativeSource={RelativeSource FindAncestor,AncestorType=CmpModal:CmpModalPage}}"/>
+                                <Button ToolTip="Quitar teléfono" Width="25" Margin="3" Content="-"
+                                Command="{Binding DataContext.IQuitarTelefono,RelativeSource={RelativeSource FindAncestor,AncestorType=CmpModal:CmpModalPage}}"/>
+                            </StackPanel>
+
+                            <DataGrid Grid.Row="1" Grid.Column="1" Margin="10,7,0,3" Style="{StaticResource CmpStandarDataGrid}" 
+                               ItemsSource="{Binding Telefono}"
+                               SelectedItem="{Binding DataContext.SelectItemTelefono,RelativeSource={RelativeSource FindAncestor,AncestorType=CmpModal:CmpModalPage}}"
+                              CmpDataGrid:CmpGridViewFocus.IsMoveFocus="True">
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn  Header="Teléfono" MinWidth="100" Width="*">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBox Text="{Binding ValueMemberPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                 CmpTextBox:CmpMaskBehaviorMVVM.Mask="Integer"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                        <!--<DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding ValueMemberPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                 CmpTextBox:CmpMaskBehaviorMVVM.Mask="Integer" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>-->
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Margin="5" Command="{Binding DataContext.IVolver, RelativeSource={RelativeSource FindAncestor,AncestorType=CmpModal:CmpModalPage}}" Content="Volver"
+                            Background="White" Foreground="Black" BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1"/>
+                    <Button Margin="5" Command="{Binding DataContext.IGuardar, RelativeSource={RelativeSource FindAncestor,AncestorType=CmpModal:CmpModalPage}}" Content="Guardar" />
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</CmpModal:CmpModalPage>

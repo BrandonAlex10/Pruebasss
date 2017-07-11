@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C117A71B-1C11-4492-A6B6-6FFFC53DF097}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SGR.Orders</RootNamespace>
+    <AssemblyName>SGR.Orders</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resource\pedido.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ComputerSystems" />
+    <Reference Include="ComputerSystems.WPF">
+      <HintPath>..\bin\ComputerSystems.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\bin\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.Resources">
+      <HintPath>..\bin\MahApps.Metro.Resources.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.SimpleChildWindow">
+      <HintPath>..\bin\MahApps.Metro.SimpleChildWindow.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\bin\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Behaviors\PasswordBoxBindingBehavior.cs" />
+    <Compile Include="Controls\SGRDetail.xaml.cs">
+      <DependentUpon>SGRDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\ConvertToStatusImage.cs" />
+    <Compile Include="UI\Index\Pages\PGSGR_Index.xaml.cs">
+      <DependentUpon>PGSGR_Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Login\Pages\PGSGR_Login.xaml.cs">
+      <DependentUpon>PGSGR_Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Mesa\ModalPage\MPSGR_MesasAtendidas.xaml.cs">
+      <DependentUpon>MPSGR_MesasAtendidas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Mesa\ModalPage\MPSGR_MesasCerrarAnular.xaml.cs">
+      <DependentUpon>MPSGR_MesasCerrarAnular.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Mesa\ModalPage\MPSGR_MesasDisponibles.xaml.cs">
+      <DependentUpon>MPSGR_MesasDisponibles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pedido\Pages\PGSGR_Pedido.xaml.cs">
+      <DependentUpon>PGSGR_Pedido.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\SGRDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Styles\Pedido\AutoScrollListBoxDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Index\Pages\PGSGR_Index.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Login\Pages\PGSGR_Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Mesa\ModalPage\MPSGR_MesasAtendidas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Mesa\ModalPage\MPSGR_MesasCerrarAnular.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Mesa\ModalPage\MPSGR_MesasDisponibles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Pedido\Pages\PGSGR_Pedido.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SGR.Models\SGR.Models.csproj">
+      <Project>{1df05013-6689-44e7-8a99-2060e9c653b9}</Project>
+      <Name>SGR.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SGR.ViewModels\SGR.ViewModels.csproj">
+      <Project>{e74a5e40-7b89-469e-a134-9c088445641e}</Project>
+      <Name>SGR.ViewModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\sgr.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Mesa\mesa_amarillo.png" />
+    <Resource Include="Resource\Mesa\mesa_gris.png" />
+    <Resource Include="Resource\Mesa\mesa_verde.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\PedidoDetails\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\PedidoDetails\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Login\1920_1080_20100520014441336870.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\pedido.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Mesa\mesa_roja.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Login\logocomputer.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

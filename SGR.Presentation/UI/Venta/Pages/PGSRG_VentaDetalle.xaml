@@ -1,0 +1,235 @@
+﻿<Grid x:Class="SGR.Presentation.UI.Venta.Pages.PGSRG_VentaDetalle"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:TitleModule="clr-namespace:ComputerSystems.WPF.Acciones.TitleModule;assembly=ComputerSystems.WPF"
+      xmlns:CmpButton="clr-namespace:ComputerSystems.WPF.Acciones.Controles.Buttons;assembly=ComputerSystems.WPF"
+      xmlns:CmpTextBox="clr-namespace:ComputerSystems.WPF.Acciones.Controles.TextBoxs;assembly=ComputerSystems.WPF"
+      xmlns:CmpModalDialogs="clr-namespace:ComputerSystems.WPF.Acciones.Controles.ModalDialog;assembly=ComputerSystems.WPF"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      mc:Ignorable="d"   Height="600" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Grid.Column="0" Margin="5,5,0,5" Background="White" BorderThickness="1" BorderBrush="#e7e7e7">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="DOCUMENTO / MONEDA" FontSize="15" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Center" />
+                <Separator Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Width="Auto" BorderBrush="#c1cbd3" BorderThickness="1"/>
+
+
+                <Grid Margin="5" Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="0.7*"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Grid.Column="0">
+                        <TextBlock Text="Tipo Documento" FontSize="10"/>
+                        <ComboBox ItemsSource="{Binding DataContext.CollectionESGR_Documento, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}, UpdateSourceTrigger=PropertyChanged}"
+                                    SelectedItem="{Binding DataContext.SelectedESGR_Documento, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}}"
+                                  IsEditable="True" 
+                                    Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                                    SelectedValuePath="CodDocumento" DisplayMemberPath="Descripcion"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.Row="0" Margin="5,0,0,0">
+                        <TextBlock Text="Serie" FontSize="10"/>
+                        <TextBox Text="{Binding Serie,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                                    Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                                    IsReadOnly="True"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Grid.Row="0" Margin="5,0,0,0">
+                        <TextBlock Text="Numero" FontSize="10"/>
+                        <TextBox Text="{Binding Numero,UpdateSourceTrigger=PropertyChanged}"
+                                    Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}" IsReadOnly="True"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="0" Grid.Column="3" Margin="5,0,0,0">
+                        <TextBlock Text="Medio Pago" FontSize="10"/>
+                        <ComboBox ItemsSource="{Binding DataContext.CollectionESGR_MedioPago,RelativeSource={RelativeSource AncestorType=Grid, AncestorLevel=2},UpdateSourceTrigger=PropertyChanged}"
+                                  SelectedItem="{Binding DataContext.SeletedESGR_MedioPago,RelativeSource={RelativeSource AncestorType=Grid, AncestorLevel=2},UpdateSourceTrigger=PropertyChanged}"
+                                   IsEditable="True"  DisplayMemberPath="MedioPago" SelectedValuePath="IdMedioPago"  Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1">
+                        <TextBlock Text="Moneda" FontSize="10"/>
+                        <ComboBox ItemsSource="{Binding DataContext.CollectionESGR_Moneda,RelativeSource={RelativeSource FindAncestor,AncestorType=Grid, AncestorLevel=2}}"
+                                      DisplayMemberPath="Descripcion" SelectedValuePath="CodMoneda" IsEditable="True" 
+                                      SelectedItem="{Binding DataContext.SelectedESGR_Moneda,RelativeSource={RelativeSource FindAncestor,AncestorType=Grid, AncestorLevel=2}}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Grid.Column="1" Margin="5,0,0,0" Grid.ColumnSpan="2">
+                        <TextBlock Text="Tipo Cambio" FontSize="10"/>
+                        <Controls:NumericUpDown Value="{Binding TipoCambio,UpdateSourceTrigger=PropertyChanged,StringFormat='###,###,##0.#00'}"
+                                                    CmpTextBox:CmpMaskBehaviorMVVM.MaximumDecimalNumber="3" Interval="1" Minimum="0"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Grid.Column="3" Margin="5,0,0,0">
+                        <TextBlock Text="Estado" FontSize="10"/>
+                        <ComboBox IsEditable="True"  ItemsSource="{Binding DataContext.CollectionESGR_Estado,RelativeSource={RelativeSource FindAncestor,AncestorType=Grid, AncestorLevel=2}}"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="0" Margin="5,5,0,5" Background="White" BorderThickness="1" BorderBrush="#e7e7e7">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="DATOS CLIENTE" FontSize="15"  HorizontalAlignment="Left" Margin="5" VerticalAlignment="Center" />
+                <Separator Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Width="Auto" BorderBrush="#c1cbd3" BorderThickness="1"/>
+
+                <Grid Margin="5" Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.6*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Grid.Column="0" >
+                        <TextBlock Text="Nro Documento Identidad" FontSize="10"/>
+                        <ComboBox ItemsSource="{Binding DataContext.CollectionESGR_Cliente,RelativeSource={RelativeSource FindAncestor,AncestorType=Grid, AncestorLevel=2}}"
+                                      SelectedItem="{Binding DataContext.SelectedEGSR_Cliente,RelativeSource={RelativeSource FindAncestor,AncestorType=Grid, AncestorLevel=2}}"
+                                      IsEditable="True"  Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                                      CmpTextBox:FocusAdvancement.AdvancesByEnterKey="True" MaxDropDownHeight="90"
+                                      CmpTextBox:CmpMaskBehaviorMVVM.Mask="Integer" IsEnabled="{Binding DataContext.PropertyEnableUpdate,RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}"
+                                      SelectedValuePath="NroDocIdentidad" DisplayMemberPath="NroDocIdentidad" IsDropDownOpen="{Binding DataContext.PropertyIsOpen,RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Grid.Row="0" Margin="5,0,0,0">
+                        <TextBlock Text="Cliente" FontSize="10"/>
+                        <TextBox Text="{Binding ESGR_Cliente.Cliente,UpdateSourceTrigger=PropertyChanged}"
+                                      Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                                     IsEnabled="{Binding DataContext.PropertyEnableUpdate,RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3">
+                        <TextBlock Text=" Direccion" FontSize="10"/>
+                        <TextBox Text="{Binding ESGR_Cliente.Direccion,UpdateSourceTrigger=PropertyChanged}"
+                                      Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                                     IsEnabled="{Binding DataContext.PropertyEnableUpdate,RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="0" Grid.Column="1" Margin="5,8,0,0">
+                        <Button   Style="{DynamicResource CmpButtonConfig}" Command="{Binding DataContext.IRegistraCliente,RelativeSource={RelativeSource FindAncestor,AncestorType=Grid, AncestorLevel=2}}"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Margin="5"  Background="White" BorderThickness="1" BorderBrush="#e7e7e7">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="PAGO" FontSize="15"  HorizontalAlignment="Left" Margin="5" VerticalAlignment="Center" />
+                <Separator Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Width="Auto" BorderBrush="#c1cbd3" BorderThickness="1"/>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.8*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="SubTotal"  FontSize="10" TextAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" />
+                    <TextBox Grid.Column="1" Margin="5,5,5,0"  Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}" 
+                                 Text="{Binding SubTotal,UpdateSourceTrigger=PropertyChanged,StringFormat='#,###,###,##0.#0'}" TextAlignment="Right"/>
+                    <TextBlock Text="IGV" FontSize="10" Grid.Row="1" TextAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" />
+                    <TextBox Grid.Column="1" Grid.Row="1" Margin="5,5,5,0"  Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}" 
+                                 Text="{Binding ImporteIGV,UpdateSourceTrigger=PropertyChanged,StringFormat='#,###,###,##0.#0'}" TextAlignment="Right"
+                                 CmpTextBox:CmpMaskBehavior.Mask="Decimal"/>
+                    <TextBlock Text="Descuento" FontSize="10" Grid.Row="2" TextAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"  />
+                    <TextBox Grid.Column="1" Grid.Row="2" Margin="5,5,5,0"  Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}" 
+                                 Text="{Binding ImporteDscto,UpdateSourceTrigger=PropertyChanged,StringFormat='#,###,###,##0.#0'}"
+                                 CmpTextBox:CmpMaskBehavior.Mask="Decimal" TextAlignment="Right"
+                                 CmpTextBox:CmpIsCommand.Enter="{Binding DataContext.ICalcularTotales,RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}"/>
+                    <TextBlock Text="Adicional"  FontSize="10" TextAlignment="Left" VerticalAlignment="Center" Grid.Row="3" Margin="10,0,0,0" />
+                    <TextBox Grid.Column="1" Margin="5,5,5,0" Grid.Row="3"  Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}" 
+                                 Text="{Binding Adicional,UpdateSourceTrigger=PropertyChanged,StringFormat='#,###,###,##0.#0'}"
+                                 CmpTextBox:CmpIsCommand.Enter="{Binding DataContext.ICalcularTotales,RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}"
+                                 CmpTextBox:CmpMaskBehavior.Mask="Decimal" TextAlignment="Right"/>
+                    <TextBlock Text="Total Pagar" FontSize="10" Grid.Row="4" TextAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" />
+                    <TextBox Grid.Column="1" Grid.Row="4" Margin="5,5,5,3"  Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}" 
+                                 Text="{Binding Importe,UpdateSourceTrigger=PropertyChanged,StringFormat='#,###,###,##0.#0'}"
+                                 CmpTextBox:CmpIsCommand.ValueUpdate="{Binding DataContext.ICalcularTotales,RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}"
+                                 CmpTextBox:CmpMaskBehavior.Mask="Decimal" TextAlignment="Right" IsReadOnly="True"/>
+
+                    <Separator Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Width="Auto" BorderBrush="#c1cbd3" BorderThickness="1"/>
+                    <TextBlock Grid.Row="6" Text="EFECTIVO"  TextAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" FontWeight="Bold"/>
+                    <TextBox Grid.Row="6" Grid.Column="1" Margin="5,3,5,0"  Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                                 Text="{Binding Efectivo,UpdateSourceTrigger=PropertyChanged,StringFormat='#,###,###,##0.#0'}" TextAlignment="Right"
+                                 CmpTextBox:CmpIsCommand.Enter="{Binding DataContext.ICalcularVuelto,RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}"/>
+                    <TextBlock Text="VUELTO" Grid.Row="7" TextAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" FontWeight="Bold"/>
+                    <TextBox Grid.Column="1" Grid.Row="7" Margin="5,5,5,5"  Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                                 Text="{Binding Vuelto,UpdateSourceTrigger=PropertyChanged,StringFormat='#,###,###,##0.#0'}" TextAlignment="Right" IsReadOnly="True"/>
+
+                </Grid>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,5,5,5" Background="White" BorderThickness="1" BorderBrush="#e7e7e7">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="PEDIDO" FontSize="15"  HorizontalAlignment="Left" Margin="5"  VerticalAlignment="Center" />
+                <Separator Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Width="Auto" BorderBrush="#c1cbd3" BorderThickness="1"/>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <DataGrid  Margin="5" ItemsSource="{Binding DataContext.CollectionESGR_VentaDetalle,RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Productos" Width="*" Binding="{Binding ESGR_Producto.Producto}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Precio Unitario" Width="*" Binding="{Binding ESGR_Producto.Precio}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Cantidad" Width="*" Binding="{Binding Cantidad}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Monto a Pagar" Width="*" Binding="{Binding Importe}" IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Grid.Column="1" Grid.Row="6" Orientation="Vertical" Grid.RowSpan="2" HorizontalAlignment="Right">
+                        <Button Margin="5" Command="{Binding DataContext.IGuardar, RelativeSource={RelativeSource FindAncestor,AncestorType=Grid, AncestorLevel=2}}" Content="Guardar [F12]" />
+                        <!--<CmpButton:CmpButtonTitleTeclaGuardar Margin="5" VerticalAlignment="Bottom" IsCommand="{Binding DataContext.IGuardar,RelativeSource={RelativeSource FindAncestor,AncestorType=Page}}"/>-->
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Grid>

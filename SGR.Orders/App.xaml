@@ -1,0 +1,29 @@
+﻿<Application x:Class="SGR.Orders.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Ctrls="http://metro.mahapps.com/winfx/xaml/controls"
+             StartupUri="MainWindow.xaml" Startup="Application_Startup_1"
+             Exit="Application_Exit_1">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ComputerSystems.WPF;component/CmpEstilos.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ComputerSystems.WPF;component/StyleControles/ButtonFlatStyle.xaml" />
+                <!-- accent resource -->
+                <!-- change "Cobalt" to the accent color you want -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Orange.xaml" />
+                <!-- theme resource -->
+                <!-- change "BaseLight" to the theme you want -->
+                <!--<ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />-->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+                <!--<ResourceDictionary Source="pack://application:,,,/WPFtoolkitFramework;component/Styles/StyleTextBox.xaml" />-->
+            </ResourceDictionary.MergedDictionaries>
+            <!--<cv:ConvertVisibilityToClearText x:Key="Source"/>-->
+            <SolidColorBrush Color="#FF115AA1" x:Key="ColorPrimary"/>
+            <SolidColorBrush Color="#3498DB" x:Key="ColorTxt"/>
+            <SolidColorBrush Color="#FF616161" x:Key="BrushLabel"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

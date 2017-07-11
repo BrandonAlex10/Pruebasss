@@ -1,0 +1,79 @@
+﻿<CmpModal:CmpModalPage x:Class="SGR.Presentation.UI.MedioPago.ModalPage.MPSGR_MedioPago"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:CmpModal="clr-namespace:ComputerSystems.WPF.Acciones.Controles.ModalDialog;assembly=ComputerSystems.WPF"
+      xmlns:TitleModule="clr-namespace:ComputerSystems.WPF.Acciones.TitleModule;assembly=ComputerSystems.WPF"
+      xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:CmpButton="clr-namespace:ComputerSystems.WPF.Acciones.Controles.Buttons;assembly=ComputerSystems.WPF"
+      xmlns:CmpComboBox="clr-namespace:ComputerSystems.WPF.Acciones.Controles.ComboBoxs;assembly=ComputerSystems.WPF"
+      xmlns:CmpControls="clr-namespace:ComputerSystems.WPF.Acciones.Controles;assembly=ComputerSystems.WPF"
+      xmlns:CmpTextBox="clr-namespace:ComputerSystems.WPF.Acciones.Controles.TextBoxs;assembly=ComputerSystems.WPF"
+      mc:Ignorable="d" Height="350" Width="500" >
+
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--<TitleModule:MyTitleModule Grid.Row="0" Grid.Column="0" Margin="5" Grid.ColumnSpan="2"  
+                                   NameModule="Sistema de Gestión para Restaurant"
+                                   NameWindow="Administración de Medio de Pago" Logo="/SGR.Presentation;component/Resource/sgr.ico" />-->
+        <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource AccentColorBrush}">
+            <TextBlock HorizontalAlignment="Center" Text="Administración de Medio de Pago" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
+        </Grid>
+
+
+        <Border Grid.Row="1" Grid.Column="0" Margin="5"  Background="White" BorderThickness="1" BorderBrush="#e7e7e7">
+            <Grid Grid.Row="1" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Row="0" Grid.Column="0" DataContext="{Binding ESGR_MedioPago, UpdateSourceTrigger=PropertyChanged}">
+                    <TextBlock Text="Seleccione Forma Pago" Margin="5,0,5,0" FontSize="10"/>
+                    <CmpControls:ComboBox Margin="5,0,5,5" VerticalAlignment="Center" Height="25"
+                                      Style="{DynamicResource VirtualisedMetroComboBox}"
+                                      Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                                      IsEnabled="{Binding PropertyEnabledEditar, UpdateSourceTrigger=PropertyChanged}"
+                                      CmpAdvancesByEnterKey="True"
+                                      ItemsSource="{Binding DataContext.CollectionESGR_FomaPago, RelativeSource={RelativeSource FindAncestor, AncestorType=CmpModal:CmpModalPage},UpdateSourceTrigger=PropertyChanged}"
+                                      SelectedItem="{Binding DataContext.SelectedESGR_FormaPago, RelativeSource={RelativeSource FindAncestor, AncestorType=CmpModal:CmpModalPage},UpdateSourceTrigger=PropertyChanged}"
+                                      MaxDropDownHeight="125"
+                                      ToolTip="Seleccione Forma Pago"
+                                      DisplayMemberPath="FormaPago"/>
+                    <TextBlock Text="Descripción de Medio de Pago" Margin="5,0,5,0" FontSize="10"/>
+                    <TextBox Margin="5,0,5,5"
+                         Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                         Text="{Binding MedioPago,UpdateSourceTrigger=PropertyChanged}"  CharacterCasing="Upper"
+                         CmpTextBox:FocusAdvancement.AdvancesByEnterKey="True"
+                         ToolTip="Nombre Medio de Pago"/>
+                    <TextBlock Text="Ingrese Números de días de crédito" Margin="5,0,5,0" FontSize="10"/>
+                    <Controls:NumericUpDown Margin="5" Minimum="0" Maximum="120"
+                                        IsEnabled="{Binding DataContext.PropertyEnabledDiasCredito, RelativeSource={RelativeSource FindAncestor, AncestorType=CmpModal:CmpModalPage}, UpdateSourceTrigger=PropertyChanged}"
+                                        Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                                        Value="{Binding DiasCredito, UpdateSourceTrigger=PropertyChanged}"
+                                        CmpTextBox:FocusAdvancement.AdvancesByEnterKey="True"
+                                        ToolTip="Ingrese Números de días de crédito"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Bottom">
+                    <Button Margin="5" Command="{Binding DataContext.IVolver, RelativeSource={RelativeSource FindAncestor,AncestorType=CmpModal:CmpModalPage}}" Content="Volver"
+                            Background="White" Foreground="Black" BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1"/>
+                    <Button Margin="5" Command="{Binding DataContext.IGuardar, RelativeSource={RelativeSource FindAncestor,AncestorType=CmpModal:CmpModalPage}}" Content="Guardar" />
+                </StackPanel>
+
+            </Grid>
+        </Border>
+
+    </Grid>
+</CmpModal:CmpModalPage>

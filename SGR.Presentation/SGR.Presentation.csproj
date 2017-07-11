@@ -1,0 +1,693 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AF34A251-A98A-4CE1-A737-79AA133E0CD8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SGR.Presentation</RootNamespace>
+    <AssemblyName>SGR.Presentation</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <PublishUrl>publicar\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>sgr.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="ComputerSystems" />
+    <Reference Include="ComputerSystems.WPF, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\ComputerSystems.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.Resources, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\MahApps.Metro.Resources.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.SimpleChildWindow, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\MahApps.Metro.SimpleChildWindow.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Style\CartaDia\AutoScrollListBoxDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\SGR_SwithButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Administrar\Pages\PGSGR_Administrar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AperturaCierreCaja\ModalPage\MPSGR_AperturaCierreCaja.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AperturaCierreCaja\ModalPage\MPSGR_CajaAperturada.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AperturaCierreCaja\Pages\PGSGR_ListadoAperturaCierreCaja.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Area\ModalPage\MPSGR_Area.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Area\Pages\PGSGR_ListadoArea.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Caja\ModalPage\MPSGR_Caja.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Caja\Pages\PGSGR_ListadoCaja.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Cliente\Pages\PGSGR_ListadoCliente.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Cliente\ModalPage\MPSGR_Cliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CartaDia\Pages\PGSGR_CartaDia.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CartaDia\Pages\PGSGR_ListadoCartaDia.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\EmpresaSucursal\ModalPage\MPSGR_EmpresaSucursal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Impresora\ModalPage\MPSGR_Impresora.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Impuesto\ModalPage\MPSGR_Impuesto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Index\Pages\PGSGR_Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\MedioPago\Pages\PGSGR_ListadoMedioPago.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\MedioPago\ModalPage\MPSGR_MedioPago.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\MesaPredeterminada\ModalPage\MPSGR_MesaPredeterminada.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\MovimientoCaja\ModalPage\MPSGR_MovimientoCaja.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\MovimientoCaja\Pages\PGSGR_ListadoMovimientoCaja.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Notificaciones\ModalPage\MPSGR_Notificaciones.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\PedidoAnulado\Pages\PGSGR_ListadoPedidoAnulado.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\PedidoTipo\Pages\PGSGR_ListadoPedidoTipo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\PedidoTipo\ModalPage\MPSGR_PedidoTipo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Mesa\Pages\PGSGR_ListadoMesa.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Mesa\ModalPage\MPSGR_Mesa.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\MesaArea\ModalPage\MPSGR_MesaArea.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\MesaArea\Pages\PGSGR_ListadoMesaArea.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProductoCategoria\Pages\PGSGR_ListadoProductoCategoria.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProductoCategoria\ModalPage\MPSGR_ProductoCategoria.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Producto\ModalPage\MPSGR_BuscadorProducto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Producto\ModalPage\MPSGR_BuscadorProductoCartaDia.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Producto\ModalPage\MPSGR_Producto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Producto\Pages\PGSGR_ListadoProducto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProductoSubCategoria\ModalPage\MPSGR_ProductoSubCategoria.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Perfil\Pages\PGSGR_ListadoPerfil.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Perfil\ModalPage\MPSGR_Perfil.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\SGRButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Usuario\ModalPage\MPSGR_BuscadorUsuario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Usuario\ModalPage\MPSGR_HabilitarUsuario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Usuario\Pages\PGSGR_InformacionUsuario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Usuario\Pages\PGSGR_ListadoUsuario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UsuarioEmpresaSucursal\Pages\PGSGR_UsuarioEmpSucursal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Usuario\ModalPage\MPSGR_Usuario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\TipoCambio\ModalPage\MPSGR_TipoCambio.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\TipoCambio\Pages\PGSGR_ListadoTipoCambio.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Documento\Pages\PGSGR_ListadoDocumento.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Documento\ModalPage\MPSGR_Documento.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Moneda\ModalPage\MPSGR_Moneda.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Moneda\Pages\PGSGR_ListadoMoneda.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Empresa\ModalPage\MPSGR_Empresa.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Empresa\Pages\PGSGR_ListadoEmpresa.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Converts\ConvertVisibilityColumns.cs" />
+    <Compile Include="UI\Administrar\Pages\PGSGR_Administrar.xaml.cs">
+      <DependentUpon>PGSGR_Administrar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\AperturaCierreCaja\ModalPage\MPSGR_AperturaCierreCaja.xaml.cs">
+      <DependentUpon>MPSGR_AperturaCierreCaja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AperturaCierreCaja\ModalPage\MPSGR_CajaAperturada.xaml.cs">
+      <DependentUpon>MPSGR_CajaAperturada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AperturaCierreCaja\Pages\PGSGR_ListadoAperturaCierreCaja.xaml.cs">
+      <DependentUpon>PGSGR_ListadoAperturaCierreCaja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Area\ModalPage\MPSGR_Area.xaml.cs">
+      <DependentUpon>MPSGR_Area.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Area\Pages\PGSGR_ListadoArea.xaml.cs">
+      <DependentUpon>PGSGR_ListadoArea.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Behaviors\PasswordBoxBindingBehavior.cs" />
+    <Compile Include="UI\Caja\ModalPage\MPSGR_Caja.xaml.cs">
+      <DependentUpon>MPSGR_Caja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Caja\Pages\PGSGR_ListadoCaja.xaml.cs">
+      <DependentUpon>PGSGR_ListadoCaja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Cliente\Pages\PGSGR_ListadoCliente.xaml.cs">
+      <DependentUpon>PGSGR_ListadoCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Cliente\ModalPage\MPSGR_Cliente.xaml.cs">
+      <DependentUpon>MPSGR_Cliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converts\ConvertVisibilityCommandClearText.cs" />
+    <Compile Include="UI\CartaDia\Pages\PGSGR_CartaDia.xaml.cs">
+      <DependentUpon>PGSGR_CartaDia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CartaDia\Pages\PGSGR_ListadoCartaDia.xaml.cs">
+      <DependentUpon>PGSGR_ListadoCartaDia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EmpresaSucursal\ModalPage\MPSGR_EmpresaSucursal.xaml.cs">
+      <DependentUpon>MPSGR_EmpresaSucursal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Impresora\ModalPage\MPSGR_Impresora.xaml.cs">
+      <DependentUpon>MPSGR_Impresora.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Impuesto\ModalPage\MPSGR_Impuesto.xaml.cs">
+      <DependentUpon>MPSGR_Impuesto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Index\Pages\PGSGR_Index.xaml.cs">
+      <DependentUpon>PGSGR_Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MedioPago\Pages\PGSGR_ListadoMedioPago.xaml.cs">
+      <DependentUpon>PGSGR_ListadoMedioPago.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MedioPago\ModalPage\MPSGR_MedioPago.xaml.cs">
+      <DependentUpon>MPSGR_MedioPago.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MesaPredeterminada\ModalPage\MPSGR_MesaPredeterminada.xaml.cs">
+      <DependentUpon>MPSGR_MesaPredeterminada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MovimientoCaja\ModalPage\MPSGR_MovimientoCaja.xaml.cs">
+      <DependentUpon>MPSGR_MovimientoCaja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MovimientoCaja\Pages\PGSGR_ListadoMovimientoCaja.xaml.cs">
+      <DependentUpon>PGSGR_ListadoMovimientoCaja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Notificaciones\ModalPage\MPSGR_Notificaciones.xaml.cs">
+      <DependentUpon>MPSGR_Notificaciones.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PedidoAnulado\Pages\PGSGR_ListadoPedidoAnulado.xaml.cs">
+      <DependentUpon>PGSGR_ListadoPedidoAnulado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PedidoTipo\Pages\PGSGR_ListadoPedidoTipo.xaml.cs">
+      <DependentUpon>PGSGR_ListadoPedidoTipo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PedidoTipo\ModalPage\MPSGR_PedidoTipo.xaml.cs">
+      <DependentUpon>MPSGR_PedidoTipo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Mesa\Pages\PGSGR_ListadoMesa.xaml.cs">
+      <DependentUpon>PGSGR_ListadoMesa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Mesa\ModalPage\MPSGR_Mesa.xaml.cs">
+      <DependentUpon>MPSGR_Mesa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MesaArea\ModalPage\MPSGR_MesaArea.xaml.cs">
+      <DependentUpon>MPSGR_MesaArea.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MesaArea\Pages\PGSGR_ListadoMesaArea.xaml.cs">
+      <DependentUpon>PGSGR_ListadoMesaArea.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductoCategoria\Pages\PGSGR_ListadoProductoCategoria.xaml.cs">
+      <DependentUpon>PGSGR_ListadoProductoCategoria.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductoCategoria\ModalPage\MPSGR_ProductoCategoria.xaml.cs">
+      <DependentUpon>MPSGR_ProductoCategoria.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Producto\ModalPage\MPSGR_BuscadorProducto.xaml.cs">
+      <DependentUpon>MPSGR_BuscadorProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Producto\ModalPage\MPSGR_BuscadorProductoCartaDia.xaml.cs">
+      <DependentUpon>MPSGR_BuscadorProductoCartaDia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Producto\ModalPage\MPSGR_Producto.xaml.cs">
+      <DependentUpon>MPSGR_Producto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Producto\Pages\PGSGR_ListadoProducto.xaml.cs">
+      <DependentUpon>PGSGR_ListadoProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductoSubCategoria\ModalPage\MPSGR_ProductoSubCategoria.xaml.cs">
+      <DependentUpon>MPSGR_ProductoSubCategoria.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Perfil\Pages\PGSGR_ListadoPerfil.xaml.cs">
+      <DependentUpon>PGSGR_ListadoPerfil.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Perfil\ModalPage\MPSGR_Perfil.xaml.cs">
+      <DependentUpon>MPSGR_Perfil.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Usuario\ModalPage\MPSGR_BuscadorUsuario.xaml.cs">
+      <DependentUpon>MPSGR_BuscadorUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Usuario\ModalPage\MPSGR_HabilitarUsuario.xaml.cs">
+      <DependentUpon>MPSGR_HabilitarUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Usuario\Pages\PGSGR_InformacionUsuario.xaml.cs">
+      <DependentUpon>PGSGR_InformacionUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Usuario\Pages\PGSGR_ListadoUsuario.xaml.cs">
+      <DependentUpon>PGSGR_ListadoUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UsuarioEmpresaSucursal\Pages\PGSGR_UsuarioEmpSucursal.xaml.cs">
+      <DependentUpon>PGSGR_UsuarioEmpSucursal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Usuario\ModalPage\MPSGR_Usuario.xaml.cs">
+      <DependentUpon>MPSGR_Usuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TipoCambio\ModalPage\MPSGR_TipoCambio.xaml.cs">
+      <DependentUpon>MPSGR_TipoCambio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TipoCambio\Pages\PGSGR_ListadoTipoCambio.xaml.cs">
+      <DependentUpon>PGSGR_ListadoTipoCambio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Documento\Pages\PGSGR_ListadoDocumento.xaml.cs">
+      <DependentUpon>PGSGR_ListadoDocumento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Documento\ModalPage\MPSGR_Documento.xaml.cs">
+      <DependentUpon>MPSGR_Documento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Moneda\ModalPage\MPSGR_Moneda.xaml.cs">
+      <DependentUpon>MPSGR_Moneda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Moneda\Pages\PGSGR_ListadoMoneda.xaml.cs">
+      <DependentUpon>PGSGR_ListadoMoneda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Empresa\ModalPage\MPSGR_Empresa.xaml.cs">
+      <DependentUpon>MPSGR_Empresa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Empresa\Pages\PGSGR_ListadoEmpresa.xaml.cs">
+      <DependentUpon>PGSGR_ListadoEmpresa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\VentaDia\PGSGR_ListadoVentaDia.xaml.cs">
+      <DependentUpon>PGSGR_ListadoVentaDia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Venta\ModalPage\MPSGR_VentaRapida.xaml.cs">
+      <DependentUpon>MPSGR_VentaRapida.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Venta\ModalPage\MPSRG_VentaCuenta.xaml.cs">
+      <DependentUpon>MPSRG_VentaCuenta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Venta\Pages\PGSGR_ListadoVenta.xaml.cs">
+      <DependentUpon>PGSGR_ListadoVenta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Venta\Pages\PGSRG_Venta.xaml.cs">
+      <DependentUpon>PGSRG_Venta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Venta\Pages\PGSRG_VentaDetalle.xaml.cs">
+      <DependentUpon>PGSRG_VentaDetalle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VMMainWindow.cs" />
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="UI\VentaDia\PGSGR_ListadoVentaDia.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Venta\ModalPage\MPSGR_VentaRapida.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Venta\ModalPage\MPSRG_VentaCuenta.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Venta\Pages\PGSGR_ListadoVenta.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Venta\Pages\PGSRG_Venta.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Venta\Pages\PGSRG_VentaDetalle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SGR.Models\SGR.Models.csproj">
+      <Project>{1df05013-6689-44e7-8a99-2060e9c653b9}</Project>
+      <Name>SGR.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SGR.Orders\SGR.Orders.csproj">
+      <Project>{c117a71b-1c11-4492-a6b6-6fffc53df097}</Project>
+      <Name>SGR.Orders</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SGR.ViewModels\SGR.ViewModels.csproj">
+      <Project>{e74a5e40-7b89-469e-a134-9c088445641e}</Project>
+      <Name>SGR.ViewModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\avatar.png" />
+    <Resource Include="Resource\Banco\Banco.png" />
+    <Resource Include="Resource\Banco\BancoEnable.png" />
+    <Resource Include="Resource\caja.png" />
+    <Resource Include="Resource\Documento\Documento.png" />
+    <Resource Include="Resource\Documento\DocumentoEnable.png" />
+    <Resource Include="Resource\Estado\Estado.png" />
+    <Resource Include="Resource\Estado\EstadoEnable.png" />
+    <Resource Include="Resource\FormaPago\FormaPago.png" />
+    <Resource Include="Resource\FormaPago\FormaPagoEnable.png" />
+    <Resource Include="Resource\Moneda\Moneda.png" />
+    <Resource Include="Resource\Moneda\MonedaEnable.png" />
+    <Resource Include="Resource\Periodo\Periodo.png" />
+    <Resource Include="Resource\Periodo\PeriodoEnable.png" />
+    <Resource Include="Resource\Retencion\Retencion.png" />
+    <Resource Include="Resource\Retencion\RetencionEnable.png" />
+    <Resource Include="Resource\Servicio\Servicio.png" />
+    <Resource Include="Resource\Servicio\ServicioEnable.png" />
+    <Resource Include="Resource\UnidadMedida\UnidadMedida.png" />
+    <Resource Include="Resource\UnidadMedida\UnidadMedidaEnable.png" />
+    <Resource Include="Resource\UsuarioEmpSucursal\UsuarioEmpSucursal.png" />
+    <Resource Include="Resource\UsuarioEmpSucursal\UsuarioEmpSucursalEnable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Login\Lock.png" />
+    <Resource Include="Image\Login\User-Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Login\Restaurant.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Login\Visual.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\sgr.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="sgr.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\PedidoTipo\False.png" />
+    <Resource Include="Resource\PedidoTipo\True.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\MesaArea\False.png" />
+    <Resource Include="Resource\MesaArea\True.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Mesa\False.png" />
+    <Resource Include="Resource\Mesa\True.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Area\False.png" />
+    <Resource Include="Resource\Area\True.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\CartaDia\filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Usuario\avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Impresora\Impresora.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Impuesto\Sunat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Caja\Caja.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Login\fondo.jpg" />
+    <Resource Include="Image\Login\mail.png" />
+    <Resource Include="Image\Login\reloj.png" />
+    <Resource Include="Image\Login\tel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\MesaPredeterminada\mesaPredeterminada.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\PreCuenta\pie_precuenta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\index.png" />
+    <Resource Include="Resource\logocomputer.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

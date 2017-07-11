@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1DF05013-6689-44E7-8A99-2060E9C653B9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SGR.Models</RootNamespace>
+    <AssemblyName>SGR.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ComputerSystems" />
+    <Reference Include="ComputerSystems.DataAccess" />
+    <Reference Include="Newtonsoft.Json" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\BSGR_AperturaCierreCaja.cs" />
+    <Compile Include="Business\BSGR_Area.cs" />
+    <Compile Include="Business\BSGR_Caja.cs" />
+    <Compile Include="Business\BSGR_CartaDia.cs" />
+    <Compile Include="Business\BSGR_CartaDiaDetalle.cs" />
+    <Compile Include="Business\BSGR_CierreCaja.cs" />
+    <Compile Include="Business\BSGR_CierreCaja_Detalle.cs" />
+    <Compile Include="Business\BSGR_Cliente.cs" />
+    <Compile Include="Business\BSGR_Configuracion.cs" />
+    <Compile Include="Business\BSGR_Contrasenia_Hist.cs" />
+    <Compile Include="Business\BSGR_Documento.cs" />
+    <Compile Include="Business\BSGR_Empresa.cs" />
+    <Compile Include="Business\BSGR_EmpresaSucursal.cs" />
+    <Compile Include="Business\BSGR_Estado.cs" />
+    <Compile Include="Business\BSGR_FormaPago.cs" />
+    <Compile Include="Business\BSGR_Formulario.cs" />
+    <Compile Include="Business\BSGR_FormularioSetting.cs" />
+    <Compile Include="Business\BSGR_ListadoPedidoAnulado.cs" />
+    <Compile Include="Business\BSGR_ListadoVentaDia.cs" />
+    <Compile Include="Business\BSGR_Log.cs" />
+    <Compile Include="Business\BSGR_MedioPago.cs" />
+    <Compile Include="Business\BSGR_Mesa.cs" />
+    <Compile Include="Business\BSGR_MesaArea.cs" />
+    <Compile Include="Business\BSGR_Modulo.cs" />
+    <Compile Include="Business\BSGR_Moneda.cs" />
+    <Compile Include="Business\BSGR_Motivo.cs" />
+    <Compile Include="Business\BSGR_MovimientoCaja.cs" />
+    <Compile Include="Business\BSGR_Pedido.cs" />
+    <Compile Include="Business\BSGR_PedidoDetalle.cs" />
+    <Compile Include="Business\BSGR_PedidoTipo.cs" />
+    <Compile Include="Business\BSGR_Perfil.cs" />
+    <Compile Include="Business\BSGR_PermisoPerfil.cs" />
+    <Compile Include="Business\BSGR_Producto.cs" />
+    <Compile Include="Business\BSGR_ProductoCategoria.cs" />
+    <Compile Include="Business\BSGR_ProductoSubCategoria.cs" />
+    <Compile Include="Business\BSGR_TipoCambio.cs" />
+    <Compile Include="Business\BSGR_Usuario.cs" />
+    <Compile Include="Business\BSGR_UsuarioArea.cs" />
+    <Compile Include="Business\BSGR_UsuarioEmpresaSucursal.cs" />
+    <Compile Include="Business\BSGR_Venta.cs" />
+    <Compile Include="Business\BSGR_VentaCuenta.cs" />
+    <Compile Include="Business\BSGR_VentaDetalle.cs" />
+    <Compile Include="Business\CmpObservableCollection.cs" />
+    <Compile Include="Entity\ESGR_AperturaCierreCaja.cs" />
+    <Compile Include="Entity\ESGR_AperturaCierreCajaDetalle.cs" />
+    <Compile Include="Entity\ESGR_Area.cs" />
+    <Compile Include="Entity\ESGR_Caja.cs" />
+    <Compile Include="Entity\ESGR_CartaDia.cs" />
+    <Compile Include="Entity\ESGR_CartaDiaDetalle.cs" />
+    <Compile Include="Entity\ESGR_CierreCaja.cs" />
+    <Compile Include="Entity\ESGR_CierreCaja_Detalle.cs" />
+    <Compile Include="Entity\ESGR_Cliente.cs" />
+    <Compile Include="Entity\ESGR_Configuracion.cs" />
+    <Compile Include="Entity\ESGR_ConfiguracionParametro.cs" />
+    <Compile Include="Entity\ESGR_Contrasenia_Hist.cs" />
+    <Compile Include="Entity\ESGR_Documento.cs" />
+    <Compile Include="Entity\ESGR_Empresa.cs" />
+    <Compile Include="Entity\ESGR_EmpresaSucursal.cs" />
+    <Compile Include="Entity\ESGR_Estado.cs" />
+    <Compile Include="Entity\ESGR_FormaPago.cs" />
+    <Compile Include="Entity\ESGR_Formulario.cs" />
+    <Compile Include="Entity\ESGR_FormularioSetting.cs" />
+    <Compile Include="Entity\ESGR_Item.cs" />
+    <Compile Include="Entity\ESGR_ListadoPedidoAnulado.cs" />
+    <Compile Include="Entity\ESGR_ListadoVentaDia.cs" />
+    <Compile Include="Entity\ESGR_Log.cs" />
+    <Compile Include="Entity\ESGR_MedioPago.cs" />
+    <Compile Include="Entity\ESGR_Mesa.cs" />
+    <Compile Include="Entity\ESGR_MesaArea.cs" />
+    <Compile Include="Entity\ESGR_Modulo.cs" />
+    <Compile Include="Entity\ESGR_Moneda.cs" />
+    <Compile Include="Entity\ESGR_Motivo.cs" />
+    <Compile Include="Entity\ESGR_MovimientoCaja.cs" />
+    <Compile Include="Entity\ESGR_MovimientoCajaDetalle.cs" />
+    <Compile Include="Entity\ESGR_Pedido.cs" />
+    <Compile Include="Entity\ESGR_PedidoDetalle.cs" />
+    <Compile Include="Entity\ESGR_PedidoTipo.cs" />
+    <Compile Include="Entity\ESGR_Perfil.cs" />
+    <Compile Include="Entity\ESGR_PermisoPerfil.cs" />
+    <Compile Include="Entity\ESGR_Privilegios.cs" />
+    <Compile Include="Entity\ESGR_Producto.cs" />
+    <Compile Include="Entity\ESGR_ProductoCategoria.cs" />
+    <Compile Include="Entity\ESGR_ProductoSubCategoria.cs" />
+    <Compile Include="Entity\ESGR_TipoCambio.cs" />
+    <Compile Include="Entity\ESGR_Usuario.cs" />
+    <Compile Include="Entity\ESGR_UsuarioArea.cs" />
+    <Compile Include="Entity\ESGR_UsuarioEmpresaSucursal.cs" />
+    <Compile Include="Entity\ESGR_Venta.cs" />
+    <Compile Include="Entity\ESGR_VentaCuenta.cs" />
+    <Compile Include="Entity\ESGR_VentaDetalle.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SGRVariables.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

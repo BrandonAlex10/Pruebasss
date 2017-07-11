@@ -1,0 +1,83 @@
+﻿<CmpModal:CmpModalPage x:Class="SGR.Presentation.UI.Moneda.ModalPage.MPSGR_Moneda"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:CmpModal="clr-namespace:ComputerSystems.WPF.Acciones.Controles.ModalDialog;assembly=ComputerSystems.WPF"
+      xmlns:TitleModule="clr-namespace:ComputerSystems.WPF.Acciones.TitleModule;assembly=ComputerSystems.WPF"
+      xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:CmpButton="clr-namespace:ComputerSystems.WPF.Acciones.Controles.Buttons;assembly=ComputerSystems.WPF"
+      xmlns:CmpTextBox="clr-namespace:ComputerSystems.WPF.Acciones.Controles.TextBoxs;assembly=ComputerSystems.WPF"
+      mc:Ignorable="d" Height="400" Width="400" >
+
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource AccentColorBrush}">
+            <TextBlock HorizontalAlignment="Center" Text="Administración de Moneda" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
+        </Grid>
+
+        <Border Grid.Row="1" Grid.Column="0" Margin="5"  Background="White" BorderThickness="1" BorderBrush="#e7e7e7">
+            <Grid Grid.Row="1" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Row="0" Grid.Column="0" DataContext="{Binding ESGR_Moneda}">
+                    <TextBlock Text="Ingresar Código de Moneda" Margin="5,0,5,0" FontSize="10"/>
+                    <TextBox x:Name="txtCodMoneda" Margin="5,0,5,5" VerticalAlignment="Center" IsEnabled="{Binding DataContext.PropertyEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=CmpModal:CmpModalPage}}"
+                        Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                        Controls:TextBoxHelper.ClearTextButton="True"
+                        CmpTextBox:FocusAdvancement.AdvancesByEnterKey="True"
+                        ToolTip="Ingresar Código de Moneda"  CharacterCasing="Upper"
+                        Text="{Binding CodMoneda,UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBlock Text="Ingresar Descripción de Moneda" Margin="5,0,5,0" FontSize="10"/>
+                    <TextBox x:Name="txtDescripcion" Margin="5,0,5,5" VerticalAlignment="Center" 
+                             Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                             Controls:TextBoxHelper.ClearTextButton="True"
+                             CmpTextBox:FocusAdvancement.AdvancesByEnterKey="True"
+                             ToolTip="Ingresar Descripción de Moneda"  CharacterCasing="Upper"
+                             Text="{Binding Descripcion,UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBlock Text="Ingresar Abreviatura de Moneda" Margin="5,0,5,0" FontSize="10"/>
+                    <TextBox x:Name="txtAbreviacion" Margin="5,0,5,5" VerticalAlignment="Center" 
+                             Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                             Controls:TextBoxHelper.ClearTextButton="True"  CharacterCasing="Upper"
+                             ToolTip="Ingresar Abreviatura de Moneda"
+                             CmpTextBox:FocusAdvancement.AdvancesByEnterKey="True"
+                             Text="{Binding Abreviacion,UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBlock Text="Ingresar Símbolo de Moneda" Margin="5,0,5,0" FontSize="10"/>
+                    <TextBox x:Name="txtSimbolo" Margin="5,0,5,5" VerticalAlignment="Center" 
+                        Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                        Controls:TextBoxHelper.ClearTextButton="True"
+                        CmpTextBox:FocusAdvancement.AdvancesByEnterKey="True"
+                        ToolTip="Ingresar Símbolo de Moneda"  CharacterCasing="Upper"
+                        Text="{Binding Simbolo,UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <CheckBox x:Name="chkDefecto" Content="Defecto" Margin="5"
+                          Controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}" IsChecked="{Binding Defecto}"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <Button Margin="5" Command="{Binding DataContext.IVolver, RelativeSource={RelativeSource FindAncestor,AncestorType=CmpModal:CmpModalPage}}" Content="Volver"
+                            Background="White" Foreground="Black" BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1"/>
+                    <Button Margin="5" Command="{Binding DataContext.IGuardar, RelativeSource={RelativeSource FindAncestor,AncestorType=CmpModal:CmpModalPage}}" Content="Guardar"/>
+                </StackPanel>
+
+            </Grid>
+        </Border>
+
+    </Grid>
+</CmpModal:CmpModalPage>

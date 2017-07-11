@@ -1,0 +1,152 @@
+﻿<CmpModal:CmpModalPage x:Class="SGR.Presentation.UI.Venta.ModalPage.MPSGR_VentaRapida"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:CmpModal="clr-namespace:ComputerSystems.WPF.Acciones.Controles.ModalDialog;assembly=ComputerSystems.WPF"
+      xmlns:CmpTextBox="clr-namespace:ComputerSystems.WPF.Acciones.Controles.TextBoxs;assembly=ComputerSystems.WPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="700"
+      Height="500" Width="800"
+	  Title="">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource AccentColorBrush}">
+            <TextBlock HorizontalAlignment="Center" Text="Ventas Rápidas" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="0" Background="#eaeaec">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid Grid.Row="0" Grid.Column="0" Margin="5" Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Row="0" Grid.Column="0">
+                    <TextBlock VerticalAlignment="Center" Margin="5,5,5,0"
+                           Text="Categoría de Producto: "/>
+                    <ComboBox VerticalAlignment="Center" Margin="5,0,5,5"
+                              ItemsSource="{Binding CollectionESGR_ProductoCategoria, UpdateSourceTrigger=PropertyChanged}"
+                              DisplayMemberPath="Categoria"
+                              SelectedItem="{Binding DataContext.SelectedESGR_ProductoCategoria, RelativeSource={RelativeSource FindAncestor, AncestorType=CmpModal:CmpModalPage}, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="1" Visibility="{Binding PropertyVisibilitySubCategoria, UpdateSourceTrigger=PropertyChanged}" >
+                    <TextBlock VerticalAlignment="Center" Margin="5,5,5,0"
+                           Text="Sub Categoría de Producto: "/>
+                    <ComboBox VerticalAlignment="Center" Margin="5,0,5,5"
+                              ItemsSource="{Binding CollectionESGR_ProductoSubCategoria, UpdateSourceTrigger=PropertyChanged}"
+                              DisplayMemberPath="SubCategoria"
+                              SelectedItem="{Binding DataContext.SelectedESGR_ProductoSubCategoria, RelativeSource={RelativeSource FindAncestor, AncestorType=CmpModal:CmpModalPage}, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+            </Grid>
+            
+            <Grid Grid.Row="0" Grid.Column="1" Margin="5" Background="White">
+                <TextBlock Text="Pedido de Productos" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+            
+            <DataGrid Grid.Row="1" Grid.Column="0" Margin="5"
+                      ItemsSource="{Binding CollectionESGR_Producto,UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding DataContext.SelectedESGR_Producto, RelativeSource={RelativeSource FindAncestor, AncestorType=CmpModal:CmpModalPage}, UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Producto" Binding="{Binding Producto, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Width="*"/>
+                    <DataGridTextColumn Header="Precio Unitario" Binding="{Binding Precio, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Width="Auto"/>
+                    <DataGridTextColumn Header="Stock" Binding="{Binding Stock, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Width="Auto"/>
+                    <DataGridTemplateColumn Width="45">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Style="{DynamicResource CmpDataViewButtonEditar01}" Height="20" Width="20" ToolTip="Agregar" Margin="0"
+                                        Command="{Binding DataContext.IAgregar, RelativeSource={RelativeSource FindAncestor, AncestorType=CmpModal:CmpModalPage}, UpdateSourceTrigger=PropertyChanged}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            
+            <DataGrid Grid.Row="1" Grid.Column="1"
+                      ItemsSource="{Binding CollectionESGR_PedidoDetalle, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding DataContext.SelectedESGR_PedidoDetalle, RelativeSource={RelativeSource FindAncestor, AncestorType=CmpModal:CmpModalPage}, UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Producto" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ESGR_Producto.Producto, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Cantidad" Width="90" MaxWidth="90">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Cantidad, UpdateSourceTrigger=PropertyChanged}" Margin="0"
+                                         TextAlignment="Right"
+                                         CmpTextBox:CmpIsCommand.ValueUpdate="{Binding DataContext.IUpdateCantidad, RelativeSource={RelativeSource FindAncestor, AncestorType=CmpModal:CmpModalPage}}"
+                                         CmpTextBox:CmpIsCommand.ValueUpdateParameter="{Binding}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Observacion" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Observacion, UpdateSourceTrigger=PropertyChanged}" Margin="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="45">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Grid.Column="1" Style="{DynamicResource CmpDataViewButtonEliminar01}" Height="20" Width="20" ToolTip="Quitar" Margin="0"
+                                        Command="{Binding DataContext.IQuitar, RelativeSource={RelativeSource FindAncestor, AncestorType=CmpModal:CmpModalPage}, UpdateSourceTrigger=PropertyChanged}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Grid Grid.Row="2" Grid.Column="0" Background="White" Margin="5,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="Observación:" Margin="5,0"/>
+                <TextBox Grid.Row="1" Text="{Binding Observacion, UpdateSourceTrigger=PropertyChanged}" Margin="5,0,5,5"/>
+            </Grid>
+
+            <StackPanel Grid.Row="2" Grid.Column="1" Background="White" Margin="5,0">
+                <StackPanel HorizontalAlignment="Right" Margin="5,0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Text="Total: S/. " FontSize="25"/>
+                        <TextBlock VerticalAlignment="Center" Text="{Binding Total, UpdateSourceTrigger=PropertyChanged, StringFormat='#,###,##0.#0'}" FontSize="23" FontWeight="Bold"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Visibility="{Binding PropertyVisibilityTotalDolar, UpdateSourceTrigger=PropertyChanged}" >
+                        <TextBlock VerticalAlignment="Center" Text="$ " FontSize="25"/>
+                        <TextBlock VerticalAlignment="Center" Text="{Binding TotalDolar, UpdateSourceTrigger=PropertyChanged, StringFormat='#,###,##0.#0'}" FontSize="20" FontWeight="Bold"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Background="White">
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="5,0">
+                    <Button Content="Volver"
+                            Command="{Binding IVolver}"/>
+                    <Button Content="Guardar"
+                            Command="{Binding IGuardar}"/>
+                </StackPanel>
+            </StackPanel>
+            
+        </Grid>
+        
+    </Grid>
+</CmpModal:CmpModalPage>

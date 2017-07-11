@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="SGR.Orders.Controls.SGRDetail"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="43" d:DesignWidth="250">
+
+    <Grid Width="325" Name="Br1"  >
+        <Grid Margin="0,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal">
+                <CheckBox />
+                <TextBlock FontSize="12" TextTrimming="CharacterEllipsis"  FontFamily="SegoeWP" VerticalAlignment="Center" Foreground="Black" Text="S/. "/>
+            </StackPanel>
+
+            <Separator Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="0" VerticalAlignment="Top"/>
+            <Separator Grid.Row="0" Grid.RowSpan="4" Grid.Column="0" Margin="0" HorizontalAlignment="Left">
+                <Separator.LayoutTransform>
+                    <RotateTransform Angle="90" />
+                </Separator.LayoutTransform>
+            </Separator>
+            <Separator Grid.Row="0" Grid.RowSpan="4" Grid.Column="2" Margin="0" HorizontalAlignment="Right">
+                <Separator.LayoutTransform>
+                    <RotateTransform Angle="90" />
+                </Separator.LayoutTransform>
+            </Separator>
+            <Separator Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="0"/>
+        </Grid>
+    </Grid>
+</UserControl>

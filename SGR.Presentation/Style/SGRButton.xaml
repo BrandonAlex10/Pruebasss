@@ -1,0 +1,1170 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/ComputerSystems.WPF;component/CmpEstilos.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="SGRButtonUnidadMedida" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="170" />
+        <Setter Property="Height" Value="170" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Unidad Medida"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="Border" Margin="0" CornerRadius="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Bottom"
+                                              RecognizesAccessKey="True" />
+                        </Border>
+                        <Grid>
+                            <Image Name="PART_Image" Source="/SGR.Presentation;component/Resource/UnidadMedida/UnidadMedida.png" Stretch="None" />
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                            <Setter Property="Source"  Value="/SGR.Presentation;component/Resource/UnidadMedida/UnidadMedidaEnable.png" TargetName="PART_Image" />
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#ecebea" />
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SGRButtonRetencion" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="170" />
+        <Setter Property="Height" Value="170" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Retención"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="Border" Margin="0" CornerRadius="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Bottom"
+                                              RecognizesAccessKey="True" />
+                        </Border>
+                        <Grid>
+                            <Image Name="PART_Image" Source="/SGR.Presentation;component/Resource/Retencion/Retencion.png" Stretch="None" />
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                            <Setter Property="Source"  Value="/SGR.Presentation;component/Resource/Retencion/RetencionEnable.png" TargetName="PART_Image" />
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#ecebea" />
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SGRButtonFormaPago" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="170" />
+        <Setter Property="Height" Value="170" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Forma Pago"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="Border" Margin="0" CornerRadius="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Bottom"
+                                              RecognizesAccessKey="True" />
+                        </Border>
+                        <Grid>
+                            <Image Name="PART_Image" Source="/SGR.Presentation;component/Resource/FormaPago/FormaPago.png" Stretch="None" />
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                            <Setter Property="Source"  Value="/SGR.Presentation;component/Resource/FormaPago/FormaPagoEnable.png" TargetName="PART_Image" />
+                        </Trigger>
+
+                        <!--<Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#ecebea" />
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>-->
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="SGRButtonBanco" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="170" />
+        <Setter Property="Height" Value="170" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Banco"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="Border" Margin="0" CornerRadius="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Bottom"
+                                              RecognizesAccessKey="True" />
+                        </Border>
+                        <Grid>
+                            <Image Name="PART_Image" Source="/SGR.Presentation;component/Resource/Banco/Banco.png" Stretch="None" />
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                            <Setter Property="Source"  Value="/SGR.Presentation;component/Resource/Banco/BancoEnable.png" TargetName="PART_Image" />
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#ecebea" />
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SGRButtonArea" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="170" />
+        <Setter Property="Height" Value="170" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Area"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border" Grid.Row="1" Margin="0" CornerRadius="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Image Name="PART_Image" Margin="18" Source="/SGR.Presentation;component/Resource/Area/True.png" Stretch="UniformToFill" />
+                            </Grid>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Bottom"
+                                              RecognizesAccessKey="True" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                            <Setter Property="Source"  Value="/SGR.Presentation;component/Resource/Area/False.png" TargetName="PART_Image" />
+                        </Trigger>
+
+                        <!--<Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#ecebea" />
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>-->
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SGRButtonMesa" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="170" />
+        <Setter Property="Height" Value="170" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Area"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border" Grid.Row="1" Margin="0" CornerRadius="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Image Name="PART_Image" Margin="18" Source="/SGR.Presentation;component/Resource/Mesa/True.png" Stretch="UniformToFill" />
+                            </Grid>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Bottom"
+                                              RecognizesAccessKey="True" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                            <Setter Property="Source"  Value="/SGR.Presentation;component/Resource/Mesa/False.png" TargetName="PART_Image" />
+                        </Trigger>
+
+                        <!--<Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#ecebea" />
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>-->
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SGRButtonMesaArea" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="170" />
+        <Setter Property="Height" Value="170" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Area"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <!--<Grid>-->
+                        <Border x:Name="Border" Grid.Row="1" Margin="0" CornerRadius="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid>
+                                    <Image Name="PART_Image" Margin="15" Source="/SGR.Presentation;component/Resource/MesaArea/True.png" Stretch="UniformToFill" />
+                                </Grid>
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Bottom"
+                                              RecognizesAccessKey="True" />
+                            </Grid>
+                        </Border>
+                    <!--</Grid>-->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                            <Setter Property="Source"  Value="/SGR.Presentation;component/Resource/MesaArea/False.png" TargetName="PART_Image" />
+                        </Trigger>
+
+                        <!--<Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#ecebea" />
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>-->
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SGRButtonPedidoTipo" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="170" />
+        <Setter Property="Height" Value="170" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Area"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border" Grid.Row="1" Margin="0" CornerRadius="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Image Name="PART_Image" Margin="18" Source="/SGR.Presentation;component/Resource/PedidoTipo/True.png" Stretch="UniformToFill" />
+                            </Grid>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Bottom"
+                                              RecognizesAccessKey="True" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                            <Setter Property="Source"  Value="/SGR.Presentation;component/Resource/PedidoTipo/False.png" TargetName="PART_Image" />
+                        </Trigger>
+
+                        <!--<Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#ecebea" />
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>-->
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SGRButtonMoneda" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="170" />
+        <Setter Property="Height" Value="170" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Moneda"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="Border" Margin="0" CornerRadius="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Bottom"
+                                              RecognizesAccessKey="True" />
+                        </Border>
+                        <Grid>
+                            <Image Name="PART_Image" Source="/SGR.Presentation;component/Resource/Moneda/Moneda.png" Stretch="None" />
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                            <Setter Property="Source"  Value="/SGR.Presentation;component/Resource/Moneda/MonedaEnable.png" TargetName="PART_Image" />
+                        </Trigger>
+
+                        <!--<Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#ecebea" />
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>-->
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SGRButtonDocumento" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="170" />
+        <Setter Property="Height" Value="170" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Documento"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="Border" Margin="0" CornerRadius="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Bottom"
+                                              RecognizesAccessKey="True" />
+                        </Border>
+                        <Grid>
+                            <Image Name="PART_Image" Source="/SGR.Presentation;component/Resource/Documento/Documento.png" Stretch="None" />
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                            <Setter Property="Source"  Value="/SGR.Presentation;component/Resource/Documento/DocumentoEnable.png" TargetName="PART_Image" />
+                        </Trigger>
+
+                        <!--<Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#ecebea" />
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>-->
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SGRButtonEstado" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="170" />
+        <Setter Property="Height" Value="170" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Estado"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="Border" Margin="0" CornerRadius="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Bottom"
+                                              RecognizesAccessKey="True" />
+                        </Border>
+                        <Grid>
+                            <Image Name="PART_Image" Source="/SGR.Presentation;component/Resource/Estado/Estado.png" Stretch="None" />
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                            <Setter Property="Source"  Value="/SGR.Presentation;component/Resource/Estado/EstadoEnable.png" TargetName="PART_Image" />
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#ecebea" />
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SGRButtonUsuarioEmpSucursal" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="170" />
+        <Setter Property="Height" Value="170" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Usuario - Sucursal"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="Border" Margin="0" CornerRadius="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Bottom"
+                                              RecognizesAccessKey="True" />
+                        </Border>
+                        <Grid>
+                            <Image Name="PART_Image" Source="/SGR.Presentation;component/Resource/UsuarioEmpSucursal/UsuarioEmpSucursal.png" Stretch="None" />
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                            <Setter Property="Source"  Value="/SGR.Presentation;component/Resource/UsuarioEmpSucursal/UsuarioEmpSucursalEnable.png" TargetName="PART_Image" />
+                        </Trigger>
+
+                        <!--<Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#ecebea" />
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>-->
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SGRButtonPeriodo" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="170" />
+        <Setter Property="Height" Value="170" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Periodo"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="Border" Margin="0" CornerRadius="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Bottom"
+                                              RecognizesAccessKey="True" />
+                        </Border>
+                        <Grid>
+                            <Image Name="PART_Image" Source="/SGR.Presentation;component/Resource/Periodo/Periodo.png" Stretch="None" />
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                            <Setter Property="Source"  Value="/SGR.Presentation;component/Resource/Periodo/PeriodoEnable.png" TargetName="PART_Image" />
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#ecebea" />
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="MnfButtonServicio" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="170" />
+        <Setter Property="Height" Value="170" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Servicio"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="Border" Margin="0" CornerRadius="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Bottom"
+                                              RecognizesAccessKey="True" />
+                        </Border>
+                        <Grid>
+                            <Image Name="PART_Image" Source="/SGR.Presentation;component/Resource/Servicio/Servicio.png" Stretch="None" />
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                            <Setter Property="Source"  Value="/SGR.Presentation;component/Resource/Servicio/ServicioEnable.png" TargetName="PART_Image" />
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#ecebea" />
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SGRButtonImpuestoSunat" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="170" />
+        <Setter Property="Height" Value="170" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Calcular Impuesto Sunat"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="Border" Margin="0" CornerRadius="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Bottom"
+                                              RecognizesAccessKey="True" />
+                        </Border>
+                        <Grid>
+                            <Image Name="PART_Image" Source="/SGR.Presentation;component/Resource/Estado/Estado.png" Stretch="None" />
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                            <Setter Property="Source"  Value="/SGR.Presentation;component/Resource/Estado/Estado.png" TargetName="PART_Image" />
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#ecebea" />
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SGRButtonImpresora" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="170" />
+        <Setter Property="Height" Value="170" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Calcular Impuesto Sunat"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="Border" Margin="0" CornerRadius="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Bottom"
+                                              RecognizesAccessKey="True" />
+                        </Border>
+                        <Grid>
+                            <Image Name="PART_Image" Source="/SGR.Presentation;component/Resource/Impresora/Impresora.jpg" Stretch="None"/>
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                            <Setter Property="Source"  Value="/SGR.Presentation;component/Resource/Impresora/Impresora.jpg" TargetName="PART_Image" />
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <!--<Setter Property="Background" Value="#ecebea" />-->
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SGRButtonMesaPredeterminada" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="170" />
+        <Setter Property="Height" Value="170" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Mesa Predeterminada"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <!--<Grid>-->
+                    <Border x:Name="Border" Grid.Row="1" Margin="0" CornerRadius="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Image Name="PART_Image" Margin="15" Height="120" Width="120" Source="/SGR.Presentation;component/Resource/MesaPredeterminada/mesaPredeterminada.jpg" Stretch="UniformToFill" />
+                            </Grid>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Bottom"
+                                              RecognizesAccessKey="True" />
+                        </Grid>
+                    </Border>
+                    <!--</Grid>-->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                            <Setter Property="Source"  Value="/SGR.Presentation;component/Resource/MesaPredeterminada/mesaPredeterminada.jpg" TargetName="PART_Image" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SGRButtonNuevo" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="95" />
+        <Setter Property="Height" Value="25" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Nuevo"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border" Margin="0" CornerRadius="0"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <Path Stretch="Uniform" Fill="Gray" Width="15" Height="15" VerticalAlignment="Center" Margin="5,5,5,5" RenderTransformOrigin="0.5,0.5"
+                                            Data="M21,22.999992L28,22.999992 28,24.999992 21,24.999992z M10,22.999992L17,22.999992 17,24.999992 10,24.999992z M21,18.999992L28,18.999992 28,20.999992 21,20.999992z M10,18.999992L17,18.999992 17,20.999992 10,20.999992z M21,14.999992L28,14.999992 28,16.999992 21,16.999992z M10,14.999992L17,14.999992 17,16.999992 10,16.999992z M1.9999998,12.000048L1.9999998,28.000048C2,29.103048,2.897,30.000048,4,30.000048L4.0018611,30 4.1027815,29.99744C5.1581866,29.943785,6,29.068579,5.9999998,28.000048L5.9999998,12.000048z M10,8.9999924L28,8.9999924 28,10.999992 10,10.999992z M10,4.9999924L28,4.9999924 28,6.9999924 10,6.9999924z M8,2.0000002L8,10.000048 8,12 8,28.000048C8,28.689423,7.8248048,29.338564,7.5165894,29.905296L7.4620788,30 29.610001,30C29.781998,29.775024,30,29.390991,30,29L30,2.0000002z M5.9999998,0L32,0 32,29C32,30.374023,30.916,32,30,32L4.001955,32 4,32.00005C1.7939999,32.00005,0,30.206049,0,28.000048L0,10.000048 5.9999998,10.000048z">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <TransformGroup.Children>
+                                            <RotateTransform Angle="180" />
+                                            <ScaleTransform ScaleX="1" ScaleY="-1" />
+                                        </TransformGroup.Children>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+
+                            <ContentPresenter Grid.Row="0" Grid.Column="1" HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                      Margin="0,0,0,0"
+                                                      VerticalAlignment="Center" 
+                                                      RecognizesAccessKey="True" />
+                            <Separator Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,0.2" Width="Auto" BorderBrush="Gray" BorderThickness="1" VerticalAlignment="Bottom"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <!--<Setter Property="Background" Value="#ecebea" />-->
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SGRButtonAgregarCuenta" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="151" />
+        <Setter Property="Height" Value="25" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Agregar cuenta"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Border" Margin="0" CornerRadius="0"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <Path Stretch="Uniform" Fill="Gray" Width="12" Height="12" VerticalAlignment="Center" Margin="5,8,0,5" RenderTransformOrigin="0.5,0.5"
+                                            Data="M12.126984,0L19.872009,0 19.872009,12.128 32,12.128 32,19.872999 19.872009,19.872999 19.872009,31.999 12.126984,31.999 12.126984,19.872999 0,19.872999 0,12.128 12.126984,12.128z">
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <TransformGroup.Children>
+                                                    <RotateTransform Angle="180" />
+                                                    <ScaleTransform ScaleX="1" ScaleY="-1" />
+                                                </TransformGroup.Children>
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    
+
+                                    <ContentPresenter Grid.Row="0" Grid.Column="1" HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                      Margin="0,0,0,0"
+                                                      VerticalAlignment="Center" 
+                                                      RecognizesAccessKey="True" />
+                                </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <!--<Setter Property="Background" Value="#ecebea" />-->
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SGRButtonCaja" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="170" />
+        <Setter Property="Height" Value="170" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Area"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border" Grid.Row="1" Margin="0" CornerRadius="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Image Name="PART_Image" Margin="18" Source="/SGR.Presentation;component/Resource/Caja/Caja.png" Stretch="Uniform" />
+                            </Grid>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Bottom"
+                                              RecognizesAccessKey="True" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                            <Setter Property="Source"  Value="/SGR.Presentation;component/Resource/Caja/Caja.png" TargetName="PART_Image" />
+                        </Trigger>
+
+                        <!--<Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#ecebea" />
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>-->
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SGRButtonImpuesto" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="170" />
+        <Setter Property="Height" Value="170" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Area"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border" Grid.Row="1" Margin="0" CornerRadius="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Image Name="PART_Image" Margin="18" Source="/SGR.Presentation;component/Resource/Impuesto/Sunat.png" Stretch="Uniform" />
+                            </Grid>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Bottom"
+                                              RecognizesAccessKey="True" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                            <Setter Property="Source"  Value="/SGR.Presentation;component/Resource/Impuesto/Sunat.png" TargetName="PART_Image" />
+                        </Trigger>
+
+                        <!--<Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#ecebea" />
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                        </Trigger>-->
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SGRButtonPreCuenta" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#3c4c5d" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="170" />
+        <Setter Property="Height" Value="170" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Content" Value="Notificaciones"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border" Grid.Row="1" Margin="0" CornerRadius="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#cecece"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Image Name="PART_Image" Margin="18" Source="/SGR.Presentation;component/Resource/PreCuenta/pie_precuenta.png" Stretch="Uniform" />
+                            </Grid>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Bottom"
+                                              RecognizesAccessKey="True" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+                            <Setter Property="Source"  Value="/SGR.Presentation;component/Resource/PreCuenta/pie_precuenta.png" TargetName="PART_Image" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CmpDataCerrar" TargetType="Button">
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Margin" Value="-20,-10,-10,-10"/>
+        <Setter Property="ToolTip" Value="Cerrar"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="2" BorderThickness="1" BorderBrush="#a5a5a5" Background="{DynamicResource AccentColorBrush2}">
+                        <Canvas Width="13" Height="13"
+                                Clip="F1 M 0,0L 76,0L 76,76L 0,76L 0,0">
+                            <!-- x:Key="appbar_magnify"-->
+                            <Path   Width="13"
+                                    Height="13"
+                                    Stretch="Fill"
+                                    Fill="Black"
+                                    Data="M15.916992,7.2190092C14.046997,7.2190092 12.530975,8.7340086 12.530975,10.605011 12.530975,11.886001 13.250977,12.988006 14.299988,13.56401L14.299988,19.721999C14.299988,20.615004 15.023987,21.339003 15.916992,21.339003 16.809998,21.339003 17.535004,20.615004 17.535004,19.721999L17.535004,13.56401C18.582977,12.988006 19.303986,11.886001 19.303986,10.605011 19.303986,8.7340086 17.786987,7.2190092 15.916992,7.2190092z M4.7209778,4.4050139L27.277985,4.4050139 27.277985,23.579009 4.7209778,23.579009z M3.3889771,3.0710145L3.3889771,24.913009 28.610992,24.913009 28.610992,3.0710145z M1.1789856,0L30.819977,0C31.471985,1.7272851E-07,32,0.528,32,1.1790008L32,26.805007C32,27.456008,31.471985,27.983001,30.819977,27.983001L1.1789856,27.983001C0.5289917,27.983001,0,27.456008,0,26.805007L0,1.1790008C0,0.528,0.5289917,1.7272851E-07,1.1789856,0z" />
+                        </Canvas>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#41B1E1" />
+                            <Setter Property="Background" Value="#41B1E1" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="BorderBrush" Value="#41B1E1"/>
+                            <Setter Property="Background" Value="#41B1E1">
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value=".5"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
